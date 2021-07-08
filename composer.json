@@ -1,0 +1,21 @@
+{
+    "name": "shudhanshdubey/task-scheduler",
+    "authors": [
+        {
+            "name": "Shudhansh Dubey",
+            "email": "shudhansh.dubey@nagarro.com"
+        }
+    ],
+    "require": { 
+    },
+    "autoload" : {
+        "psr-4": { 
+            "System\\" : "src/",
+            "App\\" : "app/"
+        },
+        "files": [  
+            "config/api.php",
+            "config/database.php"
+        ]
+    }
+}

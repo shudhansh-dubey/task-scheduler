@@ -16,6 +16,10 @@ crontab -e
 * * * * * <PHP_PATH> <PROJECT_PATH>\tasks\routineTaskCheck.php
 ```
 
+or you may include the command
+
+``` * * * * * <PHP_PATH> <PROJECT_PATH>\tasks\routineTaskCheck.php ``` in whatever shceduler applications you require.
+
 `routineTaskCheck.php` script will check for any scheduled tasks at every 1 minute.
 If it finds one, it will trigger that task.
 

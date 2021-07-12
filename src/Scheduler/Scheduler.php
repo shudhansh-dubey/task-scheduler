@@ -30,7 +30,7 @@ class Scheduler implements SchedulerInterface {
         // Execute the scheduler command
         $response = shell_exec($command);
 
-        return json_decode(json_encode($response));
+        return json_decode($response);
     }
 
     protected function getTasks () 
@@ -74,10 +74,10 @@ class Scheduler implements SchedulerInterface {
                     // Run scheduled command
                     $resp = $this->runCommand($task->command);
                     if ($resp) {
-                        if ( $resp['success'] ) {
-                            $status = 2; $message = $resp['message'];
+                        if ( $resp->success ) {
+                            $status = 2; $message = $resp->message;
                         } else {
-                            $status = 1; $message = $resp['message'];
+                            $status = 1; $message = $resp->message;
                         }
                     } else {
                         $status = 1; $message = MSG_DEFAULT_ERROR;
@@ -98,7 +98,7 @@ class Scheduler implements SchedulerInterface {
                             'completed_at' => date('Y-m-d h:i:s'),
                             'status' => $status
                         ];
-                        $cronid = $this->cronlogRepositery->insertCronLog($cronData);
+                        $cronid = $this->cronLogRepositery->insertCronLog($cronData);
     
                         if ($cronid) {
                             $response['success'] = true;

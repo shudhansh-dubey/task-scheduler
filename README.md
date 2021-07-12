@@ -127,7 +127,7 @@
 
 - For Dry Run over the web: 
 
-    Hit the url :  `<PROJECT_PATH>\tasks\routineTaskCheck.php` every minute and all the tasks will be automatically executed.
+    Hit the url :  `<PROJECT_PATH>\tasks\routineTaskCheck.php` every minute and all the tasks will be automatically executed as per configurations.
 
 ## Weather Data Fetcher Task
 

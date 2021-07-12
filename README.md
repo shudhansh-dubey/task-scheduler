@@ -67,30 +67,37 @@
             'driver' =>  'pdo_mysql' // By default it will be PDO Driver, No need to change
         ```
     
-    There are three tables which will be imported named: `cron_logs`, `schedules`, `weather`
+    - There are three tables which will be imported named: `cron_logs`, `schedules`, `weather`
 
-    `cron_logs` table includes all triggered cron entries with all possible details of response.
-    
-    `schedules` table is used for registering the schedule configuration of all tasks.
-    It requires following configurations for a unique task:
+        - `cron_logs` table includes all triggered cron entries with all possible details of response.
+        
+        - `schedules` table is used for registering the schedule configuration of all tasks.
+            It requires following configurations for a unique task:
 
-        `schedule_uid` : A unique encrypted string to uniquely identify the schedule
-        `name` : Name of the cron task
-        `enabled` : It specifies the activation status of a cron task. If set to 0, this task will not be triggered by scheduler component.
-        `minute` : Cron Sytnax for specifying the minute frequency ( default : `NULL` equivalent of `*` )
-        `hour` : Cron Sytnax for specifying the hourly frequency ( default : `NULL` equivalent of `*` )
-        `day` : Cron Sytnax for specifying the daily frequency ( default : `NULL` equivalent of `*` )
-        `month` : Cron Sytnax for specifying the monthly frequency ( default : `NULL` equivalent of `*` )
-        `weekday` : Cron Sytnax for specifying the week day frequency ( default : `NULL` equivalent of `*` )
+                - `schedule_uid` : A unique encrypted string to uniquely identify the schedule
+                
+                - `name` : Name of the cron task
+                
+                - `enabled` : It specifies the activation status of a cron task. If set to 0, this task will not be triggered by scheduler component.
+                
+                - `minute` : Cron Sytnax for specifying the minute frequency ( default : `NULL` equivalent of `*` )
+                
+                - `hour` : Cron Sytnax for specifying the hourly frequency ( default : `NULL` equivalent of `*` )
+                
+                - `day` : Cron Sytnax for specifying the daily frequency ( default : `NULL` equivalent of `*` )
+                
+                - `month` : Cron Sytnax for specifying the monthly frequency ( default : `NULL` equivalent of `*` )
+                
+                - `weekday` : Cron Sytnax for specifying the week day frequency ( default : `NULL` equivalent of `*` )
 
-        `command` : This column is used to define a command which includes the path of script.
-        Syntax of the command should be like: 
+                - `command` : This column is used to define a command which includes the path of    script.
+                    Syntax of the command should be like: 
 
-        <PHP_PATH> <PROJECT_PATH>\tasks\<SCRIPT_FILE> ( If PHP script is to be run )
+                    <PHP_PATH> <PROJECT_PATH>\tasks\<SCRIPT_FILE> ( If PHP script is to be run )
 
-        where <SCRIPT_FILE> is the script to be triggered.
+                    where <SCRIPT_FILE> is the script to be triggered.
 
-        In other cases, follow the standard for running those specific scripts from console.
+                    In other cases, follow the standard for running those specific scripts from console.
 
 
 # Scheduling a Task

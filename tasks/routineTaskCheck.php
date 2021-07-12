@@ -9,7 +9,7 @@ try {
     if ( $scheduler->hasTasks() ) { 
         $response = $scheduler->run();
     } else {
-        $response['message'] = 'No Tasks available';
+        $response['message'] = MSG_NO_TASK_AVL;
     }
 
 } catch (\Exception $e) {

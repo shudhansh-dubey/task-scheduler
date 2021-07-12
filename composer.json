@@ -15,7 +15,8 @@
         },
         "files": [  
             "config/api.php",
-            "config/database.php"
+            "config/database.php",
+            "config/constants.php"
         ]
     }
 }

@@ -80,7 +80,7 @@ class Scheduler implements SchedulerInterface {
                             $status = 1; $message = $resp['message'];
                         }
                     } else {
-                        $status = 1; $message = 'Something went wrong';
+                        $status = 1; $message = MSG_DEFAULT_ERROR;
                     }
     
                     // Time for schedule
@@ -102,16 +102,16 @@ class Scheduler implements SchedulerInterface {
     
                         if ($cronid) {
                             $response['success'] = true;
-                            $response['message'] = 'Cron log executed successfully';
+                            $response['message'] = MSG_CRON_EXECUTED;
                         } else {
-                            $response['message'] = 'Cron record save failed';
+                            $response['message'] = MSG_CRON_SAVE_FAIL;
                         }
                     } else {
-                        $response['message'] = 'Failed to update status';
+                        $response['message'] = MSG_TASK_UPDATE_FAIL;
                     }
     
                 } else {
-                    $response['message'] = 'No command to execute';
+                    $response['message'] = MSG_NO_COMMAND_AVL;
                 }
             }
         } 

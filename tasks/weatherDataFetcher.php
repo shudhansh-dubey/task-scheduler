@@ -26,12 +26,12 @@ try {
             $id = $weatherRepositery->addRecord($data);
             if ($id) {
                 $response['success'] = true;
-                $response['message'] = "Record added succesfully";
+                $response['message'] = MSG_RECORD_ADDED;
             } else {
-                $response['message'] = "Unable to save the record in database";
+                $response['message'] = MSG_RECORD_ADD_FAILED;
             }
         } else {
-            $response['message'] = 'No details found for given city.';
+            $response['message'] = MSG_NO_DETAIL_FOUND;
         }
     }
 

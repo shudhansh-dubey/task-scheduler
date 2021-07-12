@@ -15,4 +15,4 @@ class CronParserTest {
 }
 
 $parser = new CronParserTest();
-var_dump($parser->assertEquals("* * * * * ", true));
+$parser->assertEquals("* * * * * ", true);

@@ -27,7 +27,7 @@ class WeatherRepositery extends DBRepositery {
 
     public function getLastRecord() 
     {
-        $sql = "select from $this->table order by id desc limit 1";
+        $sql = "SELECT * FROM $this->table ORDER BY id DESC LIMIT 1";
         $params = [];
         return $this->Select($sql, $params);
     }

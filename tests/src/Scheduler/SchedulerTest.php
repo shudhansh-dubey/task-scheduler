@@ -14,4 +14,4 @@ class SchedulerTest {
     }
 }
 
-var_dump($parser->getResponse("C:\xampp\php\php.exe C:\xampp\htdocs\projects\task-scheduler\tasks\weatherDataFetcher.php"));
+$parser->getResponse("C:\xampp\php\php.exe C:\xampp\htdocs\projects\task-scheduler\tasks\weatherDataFetcher.php");

@@ -95,7 +95,7 @@
 
 # Scheduling a Task
 
-To schedule a task for cron run follow these steps: 
+- To schedule a task for cron run follow these steps: 
 
     - Develop and create the script file within folder `~/tasks/` with unique identifying name. 
 
@@ -105,7 +105,7 @@ To schedule a task for cron run follow these steps:
 
     - By default, you do not need to run any specific command for your custom script.
 
-Default steps:
+- Default steps:
 
     - By default there is a cron service named : `~/tasks/routineTaskCheck.php`, which checks if any task is to be triggered at any moment.
 
@@ -125,7 +125,7 @@ Default steps:
 
     - The default cron service will run each minute and trigger all other custom tasks defined in the `schedules` table as per configuration.
 
-For Dry Run over the web: 
+- For Dry Run over the web: 
 
     Hit the url :  `<PROJECT_PATH>\tasks\routineTaskCheck.php` every minute and all the tasks will be automatically executed.
 

@@ -6,16 +6,53 @@ class ScheduleRepositery extends DBRepositery {
 
     protected $table = 'schedules';
 
-    public function findAllAvailableTasks() 
+    public function findRandomEnabledTask() 
     {
-        $sql  = "select 
-                 schedule_id
-                 from $this->table
-                 where is_processed = :is_processed
-                 ";
-
-        $params['is_processed'] = 'N';
+        $sql  = "SELECT * FROM $this->table WHERE `enabled` = :enabled ORDER BY `schedule_id` DESC LIMIT 1";
+        $params['enabled'] = 1;
         
-        $result = $this->Select($sql, $params);
+        return $this->SelectRow($sql, $params);
+    }
+
+    public function findAllEnabledTasks() 
+    {
+        $sql  = "SELECT * FROM $this->table WHERE enabled = :enabled ";
+        $params['enabled'] = 1;
+        
+        return $this->Select($sql, $params);
+    }
+
+    public function triggerTask($data) 
+    {   
+        $set = '';
+        foreach ($data as $col => $val) {
+            $set .= $col . '= :' . $col . ', '; 
+            $params[$col] = $val;
+        }
+        $sql  = "UPDATE $this->table SET $set WHERE enabled = :enabled ";
+        $params['enabled'] = 1;
+        
+        return $this->Select($sql, $params);
+    }
+
+    public function updateTaskStatus($data, $conds) 
+    {   
+        $set = '';
+        foreach ($data as $col => $val) {
+            $set .= $col . ' = :' . $col . ', '; 
+            $params[$col] = $val;
+        }
+        $set = rtrim($set, ", ");
+
+        $cond = '';
+        foreach ($conds as $c => $v){
+            $cond .= $c . ' = :' . $c . ' AND '; 
+            $params[$c] = $v;
+        }
+        $cond = rtrim ($cond, " AND ");
+
+        $sql  = "UPDATE $this->table SET $set WHERE $cond ";
+        
+        return $this->Update($sql, $params);
     }
 }

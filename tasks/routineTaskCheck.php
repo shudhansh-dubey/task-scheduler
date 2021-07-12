@@ -5,10 +5,11 @@ require __DIR__.'/../bootstrap/application.php';
 $response = ['success' => false, 'message' => '', 'data' => ''];
 
 try {
-    $tasks = $scheduleRepositery->findAllAvailableTasks();
-
-    if (!empty($tasks)) {
-        
+    // Check if there are any tasks available for trigger  
+    if ( $scheduler->hasTasks() ) { 
+        $response = $scheduler->run();
+    } else {
+        $response['message'] = 'No Tasks available';
     }
 
 } catch (\Exception $e) {

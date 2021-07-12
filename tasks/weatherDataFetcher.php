@@ -8,12 +8,7 @@ $response = ['success' => false, 'message' => '', 'data' => ''];
 
 try {
 
-    if ( !isset($_GET['city']) ) {
-        $response['message'] = "Error! Invalid data";
-        echo json_encode($response); exit;
-    }
-
-    $city = htmlspecialchars($_GET['city']); 
+    $city = 'London'; 
 
     if (! empty($city)) {
 

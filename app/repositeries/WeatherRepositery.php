@@ -9,15 +9,26 @@ class WeatherRepositery extends DBRepositery {
     public function addRecord(array $data) 
     {
         if (!empty($data)) {
-            $sql = "insert into $this->table ";
-            $params = [];
-
+            
+            $cols = ''; $values = ''; $params = [];
             foreach ($data as $col => $val) {
-                $sql .= $col . '= :' . $col . ', '; 
+                $cols .=  $col . ' , '; 
+                $values .= "'" . $val  . "'"  . ' , ';
                 $params[$col] = $val;
             }
+            $cols = rtrim($cols, " , ");
+            $values = rtrim($values, " , ");
+
+            $sql  = "INSERT INTO $this->table ( $cols ) VALUES ( $values ) ";
 
             return $this->Insert(rtrim($sql, ", "), $params);
         }
+    }
+
+    public function getLastRecord() 
+    {
+        $sql = "select from $this->table order by id desc limit 1";
+        $params = [];
+        return $this->Select($sql, $params);
     }
 }

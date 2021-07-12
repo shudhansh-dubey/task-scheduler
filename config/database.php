@@ -4,6 +4,6 @@ define( "DEFAULT_DB" , [
     'user'=>'root',
     'password' => '',
     'host' => 'localhost',
-    'dbname' => 'geocoding_test',
+    'dbname' => 'task_scheduler',
     'driver' =>  'pdo_mysql'
 ]);

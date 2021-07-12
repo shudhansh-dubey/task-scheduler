@@ -29,6 +29,17 @@ class DBRepositery implements DBRepositeryInterface {
     }
 
     // Select a row/s in a Database Table
+    public function SelectRow( $statement = "" , $parameters = [] )
+    {
+        try {
+            $stmt = $this->executeStatement( $statement , $parameters );
+            return $stmt->fetch();
+        } catch(\Exception $e) {
+            throw new \Exception($e->getMessage());   
+        }		
+    }
+
+    // Select a row/s in a Database Table
     public function Select( $statement = "" , $parameters = [] )
     {
         try {
@@ -43,7 +54,7 @@ class DBRepositery implements DBRepositeryInterface {
     public function Update( $statement = "" , $parameters = [] )
     {
         try {
-            $this->executeStatement( $statement , $parameters );
+            return $this->executeStatement( $statement , $parameters );
         } catch(\Exception $e) {
             throw new \Exception($e->getMessage());   
         }		

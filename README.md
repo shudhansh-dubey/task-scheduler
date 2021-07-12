@@ -133,6 +133,10 @@ For Dry Run over the web:
 
 A Weather Data Fetcher Task is already included with predefined configurations ( frequency: per 3 minutes ) in `weather` table, which retrieves weather info for city 'London' each 3 minutes and save the temperature in celsius within `weather` table.
 
+Script for data fetcher task is: `~/tasks/weatherDataFetcher.php`
+
+City name `London` is used for fetching all weather stats.
+
 It uses `OpenWeatherAPI` for fetching live weather details.
 
 

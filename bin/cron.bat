@@ -1,1 +1,0 @@
-C:\xampp\php\php.exe  C:\xampp\htdocs\projects\task-scheduler\app\jobs\routineTaskCheck.php

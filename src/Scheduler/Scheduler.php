@@ -25,7 +25,7 @@ class Scheduler implements SchedulerInterface {
         return CronParser::parse_crontab($_after_timestamp, $_cron_string);
     }
 
-    protected function runCommand($command) 
+    public function runCommand($command) 
     {
         // Execute the scheduler command
         $response = shell_exec($command);

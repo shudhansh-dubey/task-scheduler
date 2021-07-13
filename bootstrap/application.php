@@ -7,10 +7,10 @@ require __DIR__.'/../vendor/autoload.php';
 $scheduler = new System\Scheduler\Scheduler;
 
 // Schedule Repostery Instance
-$scheduleRepositery = new App\Repositeries\ScheduleRepositery;
+$scheduleRepository = new App\Repositories\ScheduleRepository;
 
 // Schedule Repostery Instance
-$weatherRepositery = new App\Repositeries\WeatherRepositery;
+$weatherRepository = new App\Repositories\WeatherRepository;
 
-// Cron Log Repositery
-$cronlogRepositery = new App\Repositeries\CronLogRepositery;
+// Cron Log Repository
+$cronlogRepository = new App\Repositories\CronLogRepository;

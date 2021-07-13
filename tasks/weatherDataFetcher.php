@@ -23,7 +23,7 @@ try {
                 'time' => date('h:i:s'),
                 'added_on' => date('Y-m-d h:i:s')
             ];
-            $id = $weatherRepositery->addRecord($data);
+            $id = $weatherRepository->addRecord($data);
             if ($id) {
                 $response['success'] = true;
                 $response['message'] = MSG_RECORD_ADDED;

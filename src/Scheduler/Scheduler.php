@@ -3,18 +3,18 @@
 use System\Scheduler\SchedulerInterface;
 use System\Scheduler\CronSyntax;
 use System\Scheduler\CronParser;
-use App\Repositeries\CronLogRepositery;
-use App\Repositeries\ScheduleRepositery;
+use App\Repositories\CronLogRepository;
+use App\Repositories\ScheduleRepository;
 
 class Scheduler implements SchedulerInterface {
 
-    protected $repositery;
-    protected $cronLogRepositery;
+    protected $repository;
+    protected $cronLogRepository;
 
     public function __construct()
     {
-        $this->repositery = new ScheduleRepositery;
-        $this->cronLogRepositery = new CronLogRepositery;
+        $this->repository = new ScheduleRepository;
+        $this->cronLogRepository = new CronLogRepository;
     }
 
     protected function hasSchedule ($task) 
@@ -35,7 +35,7 @@ class Scheduler implements SchedulerInterface {
 
     protected function getTasks () 
     {
-        $enabled_tasks = $this->repositery->findAllEnabledTasks();
+        $enabled_tasks = $this->repository->findAllEnabledTasks();
         $result = [];
         if (! empty($enabled_tasks)) {
             foreach ($enabled_tasks as $task) {
@@ -49,7 +49,7 @@ class Scheduler implements SchedulerInterface {
 
     public function hasTasks ()
     {
-        $enabled_tasks = $this->repositery->findAllEnabledTasks();
+        $enabled_tasks = $this->repository->findAllEnabledTasks();
         $result = [];
         if (! empty($enabled_tasks)) {
             foreach ($enabled_tasks as $task) {
@@ -88,7 +88,7 @@ class Scheduler implements SchedulerInterface {
                     $time = date('Y-m-d h:i:s');
                     $data = [ 'last_triggered_at' => $time ];
                     $conds = [ 'schedule_id' => $task->schedule_id ];
-                    if ($this->repositery->updateTaskStatus($data, $conds)) {
+                    if ($this->repository->updateTaskStatus($data, $conds)) {
                         
                         // Add cron log entry
                         $cronData =[
@@ -98,7 +98,7 @@ class Scheduler implements SchedulerInterface {
                             'completed_at' => date('Y-m-d h:i:s'),
                             'status' => $status
                         ];
-                        $cronid = $this->cronLogRepositery->insertCronLog($cronData);
+                        $cronid = $this->cronLogRepository->insertCronLog($cronData);
     
                         if ($cronid) {
                             $response['success'] = true;

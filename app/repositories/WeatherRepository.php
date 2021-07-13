@@ -1,8 +1,8 @@
-<?php namespace App\Repositeries;
+<?php namespace App\Repositories;
 
-use System\Persistance\DBRepositery;
+use System\Persistance\DBRepository;
 
-class WeatherRepositery extends DBRepositery {
+class WeatherRepository extends DBRepository {
 
     protected $table = 'weather';
 

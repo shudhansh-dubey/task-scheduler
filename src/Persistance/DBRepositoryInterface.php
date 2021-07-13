@@ -1,6 +1,6 @@
 <?php namespace System\Persistance;
 
-interface DBRepositeryInterface {
+interface DBRepositoryInterface {
 
     public function Insert( $statement = "" , $parameters = [] ); 
 

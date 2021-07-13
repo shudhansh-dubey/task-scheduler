@@ -1,8 +1,8 @@
 <?php namespace System\Persistance;
 
-use System\Persistance\DBRepositeryInterface;
+use System\Persistance\DBRepositoryInterface;
 
-class DBRepositery implements DBRepositeryInterface {	
+class DBRepository implements DBRepositoryInterface {	
 	
     private $connection = null;
 

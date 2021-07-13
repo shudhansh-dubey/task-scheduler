@@ -1,8 +1,8 @@
-<?php namespace App\Repositeries;
+<?php namespace App\Repositories;
 
-use System\Persistance\DBRepositery;
+use System\Persistance\DBRepository;
 
-class CronLogRepositery extends DBRepositery {
+class CronLogRepository extends DBRepository {
 
     protected $table = 'cron_logs';
 
